@@ -6,8 +6,8 @@ import numpy as np
 
 
 def get_clean_data():
-    print("Getting clean data...")
-    df = pd.read_csv(r'C:\Users\user\Downloads\breastcancer.csv')
+    print("Getting clean data")
+    df = pd.read_csv('data/df.csv')
     df = df.drop(['Unnamed: 32', 'id'], axis=1)
     df.diagnosis = [1 if value == "M" else 0 for value in df.diagnosis]
     return df

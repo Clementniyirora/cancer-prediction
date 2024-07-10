@@ -7,7 +7,7 @@ import pickle
 
 
 def create_model(df):
-    print("Creating model...")
+    print("Creating model")
     y = df.diagnosis
     X = df.drop(["diagnosis"], axis=1)
 
@@ -22,6 +22,7 @@ def create_model(df):
     lr = LogisticRegression()
     lr.fit(X_train, y_train)
 
+
     # Test the model
     y_predict = lr.predict(X_test)
 
@@ -32,14 +33,14 @@ def create_model(df):
     return lr, scaler
 
 def get_clean_data():
-    print("Getting clean data...")
-    df = pd.read_csv(r'C:\Users\user\Downloads\breastcancer.csv')
+    print("Getting clean data")
+    df = pd.read_csv('data/df.csv')
     df = df.drop(['Unnamed: 32', 'id'], axis=1)
     df.diagnosis = [1 if value == "M" else 0 for value in df.diagnosis]
     return df
 
 def ml():
-    print("Running ml() function...")
+    print("Running ml() function")
     df = get_clean_data()
     lr, scaler = create_model(df)
 
